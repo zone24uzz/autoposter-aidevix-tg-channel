@@ -134,15 +134,20 @@ def main():
             print("Yangilik generatsiya qilib bo'lmadi.")
             sys.exit(1)
             
-    print(f"Nashr qilinmoqda: '{title}'...")
+    print(f"Post tayyorlandi: '{title}'")
     if not img or not os.path.exists(img):
         img = DEFAULT_IMAGE
         
+    # 🔔 DARHOL ADMIN LICHKASIGA (Telegram Bot orqali) YUBORISH
+    if ADMIN_CHAT_ID:
+        admin_prefix = f"🔔 [YANGI POST TOPILDI VA CHIQARILDI — {slot}]\n\n"
+        admin_caption = (admin_prefix + caption)[:1020]
+        send_photo(ADMIN_CHAT_ID, img, admin_caption)
+        print(f"Admin ({ADMIN_CHAT_ID}) ga darhol Telegram bot orqali xabar yuborildi! 📲")
+        
+    # Kanalga joylash
     success = send_photo(CHANNEL_ID, img, caption)
     
-    if ADMIN_CHAT_ID:
-        send_photo(ADMIN_CHAT_ID, img, f"✅ [AutoPost e'loni: {slot}]\n\n" + caption)
-        
     if success:
         print(f"Post muvaffaqiyatli kanalga joylandi! 🎉")
         if target_post:
