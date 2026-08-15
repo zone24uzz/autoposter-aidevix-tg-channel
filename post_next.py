@@ -6,6 +6,9 @@ import urllib.request
 import urllib.parse
 import urllib.error
 
+# AI Generator modulini chaqiramiz
+from ai_generator import get_next_post
+
 BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "8832388019:AAFaj7_zY7MepFKXrhYBHd15oawP3Ehq2N0")
 CHANNEL_ID = os.getenv("TELEGRAM_CHANNEL_ID", "-1003047427642")
 ADMIN_CHAT_ID = os.getenv("ADMIN_CHAT_ID", "8357557157")
@@ -32,13 +35,20 @@ def send_photo(chat_id, photo_path, caption):
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendPhoto"
     boundary = "----WebKitFormBoundary7MA4YWxkTrZu0gW"
     
-    if not os.path.exists(photo_path):
-        # Fallback
+    if not photo_path or not os.path.exists(photo_path):
         for ext in [".png", ".jpg", ".jpeg"]:
             alt = os.path.join(BASE_DIR, "images", f"post1{ext}")
             if os.path.exists(alt):
                 photo_path = alt
                 break
+                
+    if not os.path.exists(photo_path):
+        # Fallback to any image in images directory
+        img_dir = os.path.join(BASE_DIR, "images")
+        if os.path.exists(img_dir):
+            files = [os.path.join(img_dir, f) for f in os.listdir(img_dir) if f.endswith(('.png', '.jpg', '.jpeg'))]
+            if files:
+                photo_path = files[0]
                 
     with open(photo_path, 'rb') as f:
         file_bytes = f.read()
@@ -81,41 +91,49 @@ def main():
     queue = load_json(POSTS_QUEUE_FILE, [])
     pending_posts = [p for p in queue if p.get("status") != "published"]
     
-    if not pending_posts:
-        print("Navbatda yangi nashr qilinmagan post yo'q!")
-        sys.exit(0)
-        
-    target_post = pending_posts[0]
-    title = target_post.get("title", "Yangi post")
-    slot = target_post.get("time_slot", "07:45")
+    target_post = None
+    slot = datetime.datetime.now().strftime("%H:%M")
     
+    # 1. Agar tayyor navbatda post bo'lsa, o'shani olamiz
+    if pending_posts:
+        target_post = pending_posts[0]
+        title = target_post.get("title", "Yangi post")
+        caption = target_post.get("caption", "")
+        img = target_post.get("image_path")
+        slot = target_post.get("time_slot", slot)
+    else:
+        # 2. Agar navbat tugagan bo'lsa, Gemini AI orqali so'nggi yangilikni olib post yaratamiz
+        print("Navbat tugagan. Gemini AI orqali jonli yangilik olinmoqda...")
+        ai_post = get_next_post()
+        if ai_post:
+            title = ai_post.get("title", "AI Yangilik")
+            caption = ai_post.get("caption", "")
+            img = DEFAULT_IMAGE
+        else:
+            print("Yangilik generatsiya qilib bo'lmadi.")
+            sys.exit(1)
+            
     print(f"Nashr qilinmoqda: '{title}'...")
-    img = target_post.get("image_path")
     if not img or not os.path.exists(img):
-        # Local rel path
-        img = os.path.join(BASE_DIR, "images", f"post{target_post.get('order', 1)}.jpg")
-        if not os.path.exists(img):
-            img = os.path.join(BASE_DIR, "images", f"post{target_post.get('order', 1)}.png")
-            if not os.path.exists(img):
-                img = DEFAULT_IMAGE
-                
-    success = send_photo(CHANNEL_ID, img, target_post.get("caption", ""))
+        img = DEFAULT_IMAGE
+        
+    success = send_photo(CHANNEL_ID, img, caption)
     
-    # Admin ga ham xabar
     if ADMIN_CHAT_ID:
-        send_photo(ADMIN_CHAT_ID, img, f"✅ [GitHub Actions orqali chiqarildi: {slot}]\n\n" + target_post.get("caption", ""))
+        send_photo(ADMIN_CHAT_ID, img, f"✅ [GitHub Actions / Auto AI e'loni: {slot}]\n\n" + caption)
         
     if success:
         print(f"Post muvaffaqiyatli kanalga joylandi! 🎉")
-        target_post["status"] = "published"
-        target_post["published_at"] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        save_json(POSTS_QUEUE_FILE, queue)
-        
+        if target_post:
+            target_post["status"] = "published"
+            target_post["published_at"] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            save_json(POSTS_QUEUE_FILE, queue)
+            
         history = load_json(HISTORY_FILE, [])
         history.append({
-            "id": target_post.get("id"),
             "title": title,
-            "published_at": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            "published_at": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "type": "queued" if target_post else "ai_generated"
         })
         save_json(HISTORY_FILE, history)
     else:

@@ -9,13 +9,13 @@ on:
     - cron: '45 2 * * *'
     - cron: '20 7 * * *'
     - cron: '45 14 * * *'
-  workflow_dispatch: # Qo'lda ham bitta bosish bilan sinab ko'rish imkoniyati
+  workflow_dispatch: # Qo'lda ham sinab ko'rish imkoniyati
 
 jobs:
   publish-post:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # posts_queue.json va history.json ni saqlash uchun
+      contents: write
     steps:
       - name: Repozitoriyani yuklash
         uses: actions/checkout@v4
@@ -30,6 +30,7 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHANNEL_ID: ${{ secrets.TELEGRAM_CHANNEL_ID }}
           ADMIN_CHAT_ID: ${{ secrets.ADMIN_CHAT_ID }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
           python post_next.py
 
