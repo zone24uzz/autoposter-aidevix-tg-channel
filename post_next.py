@@ -6,7 +6,6 @@ import urllib.request
 import urllib.parse
 import urllib.error
 
-# AI Generator modulini chaqiramiz
 from ai_generator import get_next_post
 
 BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "8832388019:AAFaj7_zY7MepFKXrhYBHd15oawP3Ehq2N0")
@@ -16,6 +15,7 @@ ADMIN_CHAT_ID = os.getenv("ADMIN_CHAT_ID", "8357557157")
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 POSTS_QUEUE_FILE = os.path.join(BASE_DIR, "posts_queue.json")
 HISTORY_FILE = os.path.join(BASE_DIR, "history.json")
+HISTORY_MD_FILE = os.path.join(BASE_DIR, "POSTS_HISTORY.md")
 DEFAULT_IMAGE = os.path.join(BASE_DIR, "images", "post1.png")
 
 def load_json(filepath, default):
@@ -31,6 +31,26 @@ def save_json(filepath, data):
     with open(filepath, 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
+def append_to_markdown_history(title, caption, slot, post_type):
+    now_str = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    entry = f"""
+## 📅 {now_str} — {title}
+**Slot:** `{slot}` | **Turi:** `{post_type}`
+
+```markdown
+{caption}
+```
+
+---
+"""
+    if not os.path.exists(HISTORY_MD_FILE):
+        header = "# 📚 Aidevix Telegram Kanali Postlar Tarixi va Arxiv\n\nUshbu faylda barcha e'lon qilingan va AI tomonidan generatsiya qilingan postlar avtomatik saqlanib boradi.\n\n---\n"
+        with open(HISTORY_MD_FILE, 'w', encoding='utf-8') as f:
+            f.write(header)
+            
+    with open(HISTORY_MD_FILE, 'a', encoding='utf-8') as f:
+        f.write(entry)
+
 def send_photo(chat_id, photo_path, caption):
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendPhoto"
     boundary = "----WebKitFormBoundary7MA4YWxkTrZu0gW"
@@ -43,7 +63,6 @@ def send_photo(chat_id, photo_path, caption):
                 break
                 
     if not os.path.exists(photo_path):
-        # Fallback to any image in images directory
         img_dir = os.path.join(BASE_DIR, "images")
         if os.path.exists(img_dir):
             files = [os.path.join(img_dir, f) for f in os.listdir(img_dir) if f.endswith(('.png', '.jpg', '.jpeg'))]
@@ -93,8 +112,9 @@ def main():
     
     target_post = None
     slot = datetime.datetime.now().strftime("%H:%M")
+    post_type = "queued"
     
-    # 1. Agar tayyor navbatda post bo'lsa, o'shani olamiz
+    # 1. Navbatdagi postni tekshiramiz
     if pending_posts:
         target_post = pending_posts[0]
         title = target_post.get("title", "Yangi post")
@@ -102,13 +122,14 @@ def main():
         img = target_post.get("image_path")
         slot = target_post.get("time_slot", slot)
     else:
-        # 2. Agar navbat tugagan bo'lsa, Gemini AI orqali so'nggi yangilikni olib post yaratamiz
+        # 2. Navbat tugasa, Gemini orqali jonli yangilik
         print("Navbat tugagan. Gemini AI orqali jonli yangilik olinmoqda...")
         ai_post = get_next_post()
         if ai_post:
             title = ai_post.get("title", "AI Yangilik")
             caption = ai_post.get("caption", "")
             img = DEFAULT_IMAGE
+            post_type = "ai_generated"
         else:
             print("Yangilik generatsiya qilib bo'lmadi.")
             sys.exit(1)
@@ -120,7 +141,7 @@ def main():
     success = send_photo(CHANNEL_ID, img, caption)
     
     if ADMIN_CHAT_ID:
-        send_photo(ADMIN_CHAT_ID, img, f"✅ [GitHub Actions / Auto AI e'loni: {slot}]\n\n" + caption)
+        send_photo(ADMIN_CHAT_ID, img, f"✅ [AutoPost e'loni: {slot}]\n\n" + caption)
         
     if success:
         print(f"Post muvaffaqiyatli kanalga joylandi! 🎉")
@@ -133,9 +154,13 @@ def main():
         history.append({
             "title": title,
             "published_at": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-            "type": "queued" if target_post else "ai_generated"
+            "type": post_type
         })
         save_json(HISTORY_FILE, history)
+        
+        # Markdown faylga arxivlash
+        append_to_markdown_history(title, caption, slot, post_type)
+        print("Post 'POSTS_HISTORY.md' arxiv fayliga yozib qo'yildi! 📝")
     else:
         print("Kanalga joylashda xatolik yuz berdi!")
         sys.exit(1)

@@ -34,10 +34,10 @@ jobs:
         run: |
           python post_next.py
 
-      - name: O'zgarishlarni GitHub ga saqlash (Git Commit & Push)
+      - name: O'zgarishlarni va Yangi Postlarni GitHub ga saqlash (Git Commit & Push)
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add posts_queue.json history.json || true
-          git commit -m "chore: update published posts queue [skip ci]" || true
+          git add posts_queue.json history.json POSTS_HISTORY.md || true
+          git commit -m "chore: archive published post to markdown history [skip ci]" || true
           git push || true
