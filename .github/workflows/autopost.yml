@@ -1,0 +1,42 @@
+name: Aidevix AutoPoster (24/7 Telegram Publisher)
+
+on:
+  schedule:
+    # Eslatma: GitHub Actions UTC vaqtida ishlaydi (Toshkent = UTC+5)
+    # 07:45 Tashkent = 02:45 UTC
+    # 12:20 Tashkent = 07:20 UTC
+    # 19:45 Tashkent = 14:45 UTC
+    - cron: '45 2 * * *'
+    - cron: '20 7 * * *'
+    - cron: '45 14 * * *'
+  workflow_dispatch: # Qo'lda ham bitta bosish bilan sinab ko'rish imkoniyati
+
+jobs:
+  publish-post:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # posts_queue.json va history.json ni saqlash uchun
+    steps:
+      - name: Repozitoriyani yuklash
+        uses: actions/checkout@v4
+
+      - name: Python o'rnatish
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Postni Telegramga nashr qilish
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHANNEL_ID: ${{ secrets.TELEGRAM_CHANNEL_ID }}
+          ADMIN_CHAT_ID: ${{ secrets.ADMIN_CHAT_ID }}
+        run: |
+          python post_next.py
+
+      - name: O'zgarishlarni GitHub ga saqlash (Git Commit & Push)
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add posts_queue.json history.json || true
+          git commit -m "chore: update published posts queue [skip ci]" || true
+          git push || true
