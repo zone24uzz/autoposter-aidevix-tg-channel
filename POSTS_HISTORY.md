@@ -1,0 +1,33 @@
+# 📚 Aidevix Telegram Kanali Postlar Tarixi va Arxiv
+
+Ushbu faylda barcha e'lon qilingan va AI tomonidan generatsiya qilingan postlar avtomatik saqlanib boradi.
+
+---
+
+## 📅 2026-08-15 14:57:27 — Anthropic: Claude Opus 5
+**Slot:** `19:45` | **Turi:** `queued`
+
+```markdown
+⚡ Anthropic: Claude Opus 5
+
+**Claude Opus 5 chiqdi — lekin yangilik faqat kuchliroq modelda emas.**
+
+Anthropic yangi model bilan agent platformasiga ham yangi imkoniyatlar qo‘shdi: suhbat jarayonida tool’larni almashtirish va ayrim xavfsizlik flag’larida fallback oqimini sozlash.
+
+Bu nimani anglatadi? AI agentlar endi oddiy chat oynasidan chiqib, uzoqroq va murakkab developer workflow’lariga yaqinlashmoqda.
+
+Ammo production’da fallback qanday javob qaytarishini, qaysi tool’ga ruxsat berilishini va security review’ni jamoaning o‘zi sinab ko‘rishi kerak.
+
+Manba: Anthropic.
+
+━━━━━━━━━━━━━━━━━━━━━━
+Aidevix — AI & Dasturlash O'quv Platformasi 🇺🇿
+
+📢 Kanal: @aidevix
+📸 Instagram: @aidevix.uz
+🌐 Sayt: aidevix.uz
+
+#AI #TechNews #Dasturlash #Aidevix #VibeCoding
+```
+
+---
