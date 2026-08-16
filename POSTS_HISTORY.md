@@ -31,3 +31,31 @@ Aidevix — AI & Dasturlash O'quv Platformasi 🇺🇿
 ```
 
 ---
+
+## 📅 2026-08-16 03:33:19 — Google: Gemini 3.7 Flash — coding va agentlar uchun
+**Slot:** `07:45` | **Turi:** `queued`
+
+```markdown
+⚡ Google: Gemini 3.7 Flash — coding va agentlar uchun
+
+**Google yangi Gemini 3.7 Flash’ni coding va agent workflow’lari uchun chiqardi.**
+
+Eng qiziq nuqta — 3.6 Flash relizidan atigi bir necha hafta o‘tib yangi iteratsiya kelgani. AI model bozori juda tez yangilanmoqda.
+
+Devlar uchun xulosa: provider yoki model nomini kodga qattiq bog‘lab qo‘ymang. Eval testlar, fallback va model-routing qatlami bo‘lsin.
+
+Bugun eng zo‘r model bo‘lgan narsa bir necha haftadan keyin narx, tezlik yoki sifat bo‘yicha ortda qolishi mumkin.
+
+Manba: Google va Reuters.
+
+━━━━━━━━━━━━━━━━━━━━━━
+Aidevix — AI & Dasturlash O'quv Platformasi 🇺🇿
+
+📢 Kanal: @aidevix
+📸 Instagram: @aidevix.uz
+🌐 Sayt: aidevix.uz
+
+#AI #TechNews #Dasturlash #Aidevix #VibeCoding
+```
+
+---

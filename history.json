@@ -13,5 +13,10 @@
     "title": "Anthropic: Claude Opus 5",
     "published_at": "2026-08-15 14:57:27",
     "type": "queued"
+  },
+  {
+    "title": "Google: Gemini 3.7 Flash — coding va agentlar uchun",
+    "published_at": "2026-08-16 03:33:19",
+    "type": "queued"
   }
 ]
