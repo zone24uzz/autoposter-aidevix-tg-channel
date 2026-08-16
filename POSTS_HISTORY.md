@@ -87,3 +87,31 @@ Aidevix — AI & Dasturlash O'quv Platformasi 🇺🇿
 ```
 
 ---
+
+## 📅 2026-08-16 14:57:49 — Meta Muse Code: terminal coding agent
+**Slot:** `19:45` | **Turi:** `queued`
+
+```markdown
+⚡ Meta Muse Code: terminal coding agent
+
+**Meta ham terminal coding-agent poygasiga kirdi.**
+
+Kompaniya **Muse Code** beta’ni taqdim etdi. U terminalda ishlaydigan coding agent bo‘lib, background subagentlar hamda session’ni davom ettirish/replay qilishga yo‘naltirilgan local event log bilan keladi.
+
+Trend aniq: AI vositalari endi IDE ichidagi chat bo‘lishdan chiqib, uzoqroq task’larni yuritadigan agentlarga aylanmoqda.
+
+Hozircha beta. Shuning uchun uni production’ga ko‘r-ko‘rona qo‘shishdan ko‘ra, alohida repo yoki sandbox’da sinab ko‘rish to‘g‘riroq.
+
+Manba: Meta.
+
+━━━━━━━━━━━━━━━━━━━━━━
+Aidevix — AI & Dasturlash O'quv Platformasi 🇺🇿
+
+📢 Kanal: @aidevix
+📸 Instagram: @aidevix.uz
+🌐 Sayt: aidevix.uz
+
+#AI #TechNews #Dasturlash #Aidevix #VibeCoding
+```
+
+---
