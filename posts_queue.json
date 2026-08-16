@@ -4,7 +4,6 @@
     "order": 1,
     "title": "OpenAI: GPT‑5.6 va ChatGPT Work",
     "time_slot": "07:45",
-    "image_path": "D:\\Jarvis\\aidevix_autoposter\\images\\post1.png",
     "caption": "⚡ OpenAI: GPT‑5.6 va ChatGPT Work\n\n**ChatGPT endi faqat savol-javob uchun emasmi?**\n\nOpenAI GPT‑5.6 oilasini va unga asoslangan **ChatGPT Work**’ni taqdim etdi. Uning yo‘nalishi: brief olish, hujjat yoki prezentatsiya tayyorlash, sayt/web-app ish oqimlarini bajarish kabi ko‘p bosqichli vazifalar.\n\nBu dev jamoalar uchun bitta muhim signal: AI’dan endi faqat snippet emas, balki `brief → prototip → material → review` oqimida foydalanish boshlanyapti.\n\nLekin mijoz ma’lumoti, deploy va production kodda human review shart. Agent tezlashtiradi, mas’uliyatni olib qo‘ymaydi.\n\nManba: OpenAI system card va Reuters.\n\n━━━━━━━━━━━━━━━━━━━━━━\nAidevix — AI & Dasturlash O'quv Platformasi 🇺🇿\n\n📢 Kanal: @aidevix\n📸 Instagram: @aidevix.uz\n🌐 Sayt: aidevix.uz\n\n#AI #TechNews #Dasturlash #Aidevix #VibeCoding",
     "status": "published",
     "published_at": "2026-08-15 07:48:15"
@@ -14,7 +13,6 @@
     "order": 2,
     "title": "Google: Gemini 3.6 Flash, 3.5 Flash‑Lite va Flash Cyber",
     "time_slot": "12:20",
-    "image_path": "D:\\Jarvis\\aidevix_autoposter\\images\\post2.jpg",
     "caption": "⚡ Google: Gemini 3.6 Flash, 3.5 Flash‑Lite va Flash Cyber\n\n**AI’da yutadiganlar eng kuchli modelni emas, to‘g‘ri modelni tanlaydiganlar bo‘ladi.**\n\nGoogle Gemini liniyasiga 3 ta yangi variant qo‘shdi: tezkor **Gemini 3.6 Flash**, tejamkor **3.5 Flash‑Lite** va cybersecurity’ga yo‘naltirilgan **3.5 Flash Cyber**.\n\nAmaliy xulosa oddiy: support, tarjima va klassifikatsiyani yengil modelga; coding yoki murakkab agent task’larini kuchliroq modelga yuborish mumkin. Bunga **model routing** deyiladi.\n\nStartaplar uchun AI xarajatini tushirishdagi eng real yo‘llardan biri ham shu.\n\nManba: Google.\n\n━━━━━━━━━━━━━━━━━━━━━━\nAidevix — AI & Dasturlash O'quv Platformasi 🇺🇿\n\n📢 Kanal: @aidevix\n📸 Instagram: @aidevix.uz\n🌐 Sayt: aidevix.uz\n\n#AI #TechNews #Dasturlash #Aidevix #VibeCoding",
     "status": "published",
     "published_at": "2026-08-15 07:46:10"
@@ -24,7 +22,6 @@
     "order": 3,
     "title": "Anthropic: Claude Opus 5",
     "time_slot": "19:45",
-    "image_path": "D:\\Jarvis\\aidevix_autoposter\\images\\post3.jpg",
     "caption": "⚡ Anthropic: Claude Opus 5\n\n**Claude Opus 5 chiqdi — lekin yangilik faqat kuchliroq modelda emas.**\n\nAnthropic yangi model bilan agent platformasiga ham yangi imkoniyatlar qo‘shdi: suhbat jarayonida tool’larni almashtirish va ayrim xavfsizlik flag’larida fallback oqimini sozlash.\n\nBu nimani anglatadi? AI agentlar endi oddiy chat oynasidan chiqib, uzoqroq va murakkab developer workflow’lariga yaqinlashmoqda.\n\nAmmo production’da fallback qanday javob qaytarishini, qaysi tool’ga ruxsat berilishini va security review’ni jamoaning o‘zi sinab ko‘rishi kerak.\n\nManba: Anthropic.\n\n━━━━━━━━━━━━━━━━━━━━━━\nAidevix — AI & Dasturlash O'quv Platformasi 🇺🇿\n\n📢 Kanal: @aidevix\n📸 Instagram: @aidevix.uz\n🌐 Sayt: aidevix.uz\n\n#AI #TechNews #Dasturlash #Aidevix #VibeCoding",
     "status": "published",
     "published_at": "2026-08-15 14:57:27"
@@ -34,7 +31,6 @@
     "order": 4,
     "title": "Google: Gemini 3.7 Flash — coding va agentlar uchun",
     "time_slot": "07:45",
-    "image_path": "C:\\Users\\user\\.gemini\\antigravity-cli\\brain\\d50f1280-c654-494f-98e4-0330669fe408\\clean_agent_banner_1786755705506.jpg",
     "caption": "⚡ Google: Gemini 3.7 Flash — coding va agentlar uchun\n\n**Google yangi Gemini 3.7 Flash’ni coding va agent workflow’lari uchun chiqardi.**\n\nEng qiziq nuqta — 3.6 Flash relizidan atigi bir necha hafta o‘tib yangi iteratsiya kelgani. AI model bozori juda tez yangilanmoqda.\n\nDevlar uchun xulosa: provider yoki model nomini kodga qattiq bog‘lab qo‘ymang. Eval testlar, fallback va model-routing qatlami bo‘lsin.\n\nBugun eng zo‘r model bo‘lgan narsa bir necha haftadan keyin narx, tezlik yoki sifat bo‘yicha ortda qolishi mumkin.\n\nManba: Google va Reuters.\n\n━━━━━━━━━━━━━━━━━━━━━━\nAidevix — AI & Dasturlash O'quv Platformasi 🇺🇿\n\n📢 Kanal: @aidevix\n📸 Instagram: @aidevix.uz\n🌐 Sayt: aidevix.uz\n\n#AI #TechNews #Dasturlash #Aidevix #VibeCoding",
     "status": "published",
     "published_at": "2026-08-16 03:33:19"
@@ -44,7 +40,6 @@
     "order": 5,
     "title": "Agent Plugins 1.0: AI agentlar uchun umumiy format",
     "time_slot": "12:20",
-    "image_path": "C:\\Users\\user\\.gemini\\antigravity-cli\\brain\\d50f1280-c654-494f-98e4-0330669fe408\\clean_agent_banner_1786755705506.jpg",
     "caption": "⚡ Agent Plugins 1.0: AI agentlar uchun umumiy format\n\n**AI agentlar uchun “bir marta yoz — ko‘p joyda ishlat” davri yaqinlashyapti.**\n\nAgent Plugins 1.0 — Agent Skills va MCP serverlarni paketlash uchun umumiy format sifatida e’lon qilindi. Maqsad: bitta plugin’ni turli coding agent ekotizimlarida ishlata olish.\n\nBuni `npm package` analogi deb tasavvur qilish mumkin: ichki AI skill yoki tool yozsangiz, faqat bitta IDE/vendor bilan cheklanib qolmaslik ehtimoli oshadi.\n\nDeveloperlar uchun xulosa: reusable prompt, MCP va internal tool’larni tartibli paketlash endi yanada muhim.\n\nManba: Google Developers va GitHub.\n\n━━━━━━━━━━━━━━━━━━━━━━\nAidevix — AI & Dasturlash O'quv Platformasi 🇺🇿\n\n📢 Kanal: @aidevix\n📸 Instagram: @aidevix.uz\n🌐 Sayt: aidevix.uz\n\n#AI #TechNews #Dasturlash #Aidevix #VibeCoding",
     "status": "published",
     "published_at": "2026-08-16 07:47:27"
@@ -54,7 +49,6 @@
     "order": 6,
     "title": "Meta Muse Code: terminal coding agent",
     "time_slot": "19:45",
-    "image_path": "C:\\Users\\user\\.gemini\\antigravity-cli\\brain\\d50f1280-c654-494f-98e4-0330669fe408\\clean_agent_banner_1786755705506.jpg",
     "caption": "⚡ Meta Muse Code: terminal coding agent\n\n**Meta ham terminal coding-agent poygasiga kirdi.**\n\nKompaniya **Muse Code** beta’ni taqdim etdi. U terminalda ishlaydigan coding agent bo‘lib, background subagentlar hamda session’ni davom ettirish/replay qilishga yo‘naltirilgan local event log bilan keladi.\n\nTrend aniq: AI vositalari endi IDE ichidagi chat bo‘lishdan chiqib, uzoqroq task’larni yuritadigan agentlarga aylanmoqda.\n\nHozircha beta. Shuning uchun uni production’ga ko‘r-ko‘rona qo‘shishdan ko‘ra, alohida repo yoki sandbox’da sinab ko‘rish to‘g‘riroq.\n\nManba: Meta.\n\n━━━━━━━━━━━━━━━━━━━━━━\nAidevix — AI & Dasturlash O'quv Platformasi 🇺🇿\n\n📢 Kanal: @aidevix\n📸 Instagram: @aidevix.uz\n🌐 Sayt: aidevix.uz\n\n#AI #TechNews #Dasturlash #Aidevix #VibeCoding",
     "status": "published",
     "published_at": "2026-08-16 14:57:49"
@@ -64,7 +58,6 @@
     "order": 7,
     "title": "Meta Muse Glimmer: local agent modeli",
     "time_slot": "07:45",
-    "image_path": "C:\\Users\\user\\.gemini\\antigravity-cli\\brain\\d50f1280-c654-494f-98e4-0330669fe408\\clean_agent_banner_1786755705506.jpg",
     "caption": "⚡ Meta Muse Glimmer: local agent modeli\n\n**Kod bazani cloud’ga yubormasdan AI agent ishlatish yana bir qadam yaqinlashdi.**\n\nMeta **Muse Glimmer** — 30B open-weight agent modelini Apache 2.0 litsenziyasi bilan chiqardi. U local coding va function calling kabi workflow’lar uchun mo‘ljallangan.\n\nBu kompaniya kodi yoki maxfiy ma’lumotini tashqi API’ga yuborishni istamaydigan jamoalar uchun qiziq yo‘nalish.\n\nLekin “local” har doim “yengil” degani emas: Meta quantization bilan ham taxminan 17–20 GB xotira talab qilinishini ko‘rsatadi. Demak, hamma laptop uchun emas.\n\nManba: Meta.\n\n━━━━━━━━━━━━━━━━━━━━━━\nAidevix — AI & Dasturlash O'quv Platformasi 🇺🇿\n\n📢 Kanal: @aidevix\n📸 Instagram: @aidevix.uz\n🌐 Sayt: aidevix.uz\n\n#AI #TechNews #Dasturlash #Aidevix #VibeCoding",
     "status": "pending"
   },
@@ -73,7 +66,6 @@
     "order": 8,
     "title": "NVIDIA: AI infratuzilmasiga $500 mlrd+ kapital safarbar qilish rejasi",
     "time_slot": "12:20",
-    "image_path": "C:\\Users\\user\\.gemini\\antigravity-cli\\brain\\d50f1280-c654-494f-98e4-0330669fe408\\clean_agent_banner_1786755705506.jpg",
     "caption": "⚡ NVIDIA: AI infratuzilmasiga $500 mlrd+ kapital safarbar qilish rejasi\n\n**AI poygasi endi faqat model poygasi emas — data center, elektr va moliya poygasi ham.**\n\nNVIDIA Apollo, BlackRock, Blackstone va boshqa yirik moliyaviy institutlar bilan AI compute infratuzilmasi uchun $500 milliarddan ortiq uchinchi tomon kapitalini safarbar qilishni maqsad qilgan platformalar bo‘yicha memorandum imzoladi.\n\nMuhim farq: bu $500 mlrd hozirning o‘zida sarflangan pul emas, balki rejalashtirilgan mobilizatsiya hajmi.\n\nSignal esa juda katta: kelajakdagi AI cheklovi faqat GPU emas; elektr quvvati, data center va moliyalashtirish ham bo‘ladi.\n\nManba: NVIDIA.\n\n━━━━━━━━━━━━━━━━━━━━━━\nAidevix — AI & Dasturlash O'quv Platformasi 🇺🇿\n\n📢 Kanal: @aidevix\n📸 Instagram: @aidevix.uz\n🌐 Sayt: aidevix.uz\n\n#AI #TechNews #Dasturlash #Aidevix #VibeCoding",
     "status": "pending"
   },
@@ -82,7 +74,6 @@
     "order": 9,
     "title": "AMD Taalas’ni sotib olmoqda: inference chiplar poygasi",
     "time_slot": "19:45",
-    "image_path": "C:\\Users\\user\\.gemini\\antigravity-cli\\brain\\d50f1280-c654-494f-98e4-0330669fe408\\clean_agent_banner_1786755705506.jpg",
     "caption": "⚡ AMD Taalas’ni sotib olmoqda: inference chiplar poygasi\n\n**AI’ning keyingi katta jangi — modelni o‘qitish emas, uni arzon va tez ishlatish bo‘lishi mumkin.**\n\nAMD AI inference uchun maxsus chiplar ishlab chiqadigan Taalas startapini sotib olish bo‘yicha kelishuvga erishdi.\n\nInference — bu tayyor modelning foydalanuvchi so‘rovlariga javob berishi. Chatbot, code copilot yoki AI feature ishlaganda asosan shu xarajat qilinadi.\n\nDemak, bozor asta-sekin “kim eng katta modelni train qildi?” savolidan “kim uni eng arzon, tez va energiya tejamkor ishlatadi?” savoliga o‘tyapti.\n\nManba: AMD va Reuters.\n\n━━━━━━━━━━━━━━━━━━━━━━\nAidevix — AI & Dasturlash O'quv Platformasi 🇺🇿\n\n📢 Kanal: @aidevix\n📸 Instagram: @aidevix.uz\n🌐 Sayt: aidevix.uz\n\n#AI #TechNews #Dasturlash #Aidevix #VibeCoding",
     "status": "pending"
   },
@@ -91,7 +82,6 @@
     "order": 10,
     "title": "EU AI Act: shaffoflik talablari kuchga kirdi",
     "time_slot": "07:45",
-    "image_path": "C:\\Users\\user\\.gemini\\antigravity-cli\\brain\\d50f1280-c654-494f-98e4-0330669fe408\\clean_agent_banner_1786755705506.jpg",
     "caption": "⚡ EU AI Act: shaffoflik talablari kuchga kirdi\n\n**AI mahsulot qilayotganlar uchun yangi savol: “model ishlaydimi?” emas, “foydalanuvchiga AI ekanini aytyaptimi?”**\n\nYevropa Ittifoqida AI Act’ning yangi shaffoflik talablari kuchga kirdi. Ayrim holatlarda foydalanuvchiga AI bilan muloqot qilayotgani ochiq ko‘rsatilishi, AI yaratgan yoki manipulyatsiya qilingan kontent belgilanishi kerak.\n\nBu ayniqsa EU bozoriga xizmat qiladigan SaaS, agency va startup’lar uchun muhim: disclosure, label va traceability endi faqat legal masala emas — product requirement.\n\nManba: European Commission.\n\n━━━━━━━━━━━━━━━━━━━━━━\nAidevix — AI & Dasturlash O'quv Platformasi 🇺🇿\n\n📢 Kanal: @aidevix\n📸 Instagram: @aidevix.uz\n🌐 Sayt: aidevix.uz\n\n#AI #TechNews #Dasturlash #Aidevix #VibeCoding",
     "status": "pending"
   },
@@ -100,7 +90,6 @@
     "order": 11,
     "title": "GOLD EAGLE: AI yordamida vulnerabilitilarni topish bo‘yicha koordinatsiya",
     "time_slot": "12:20",
-    "image_path": "C:\\Users\\user\\.gemini\\antigravity-cli\\brain\\d50f1280-c654-494f-98e4-0330669fe408\\clean_agent_banner_1786755705506.jpg",
     "caption": "⚡ GOLD EAGLE: AI yordamida vulnerabilitilarni topish bo‘yicha koordinatsiya\n\n**AI endi faqat kod yozmayapti — software’dagi zaifliklarni topish va patch qilish jarayoniga ham kirmoqda.**\n\nAQShda GOLD EAGLE tashabbusi e’lon qilindi. Uning maqsadi — AI yordamida topilgan zaifliklarni aniqlash, tekshirish, prioritetlash va critical infrastructure hamda open-source hamkorlar bilan bartaraf etishni muvofiqlashtirish.\n\nDevlar uchun signal: machine-found vulnerability reportlar ko‘payadi. Open-source loyiha yoki product’da security triage, responsible disclosure va patch validation jarayoni aniq bo‘lishi kerak.\n\nManba: White House.\n\n━━━━━━━━━━━━━━━━━━━━━━\nAidevix — AI & Dasturlash O'quv Platformasi 🇺🇿\n\n📢 Kanal: @aidevix\n📸 Instagram: @aidevix.uz\n🌐 Sayt: aidevix.uz\n\n#AI #TechNews #Dasturlash #Aidevix #VibeCoding",
     "status": "pending"
   },
@@ -109,7 +98,6 @@
     "order": 12,
     "title": "Anthropic: AI kriptografik zaifliklarni izlashga yordam bermoqda",
     "time_slot": "19:45",
-    "image_path": "C:\\Users\\user\\.gemini\\antigravity-cli\\brain\\d50f1280-c654-494f-98e4-0330669fe408\\clean_agent_banner_1786755705506.jpg",
     "caption": "⚡ Anthropic: AI kriptografik zaifliklarni izlashga yordam bermoqda\n\n**“AI AES’ni buzdi” degan xulosaga shoshilmang. Lekin signal jiddiy.**\n\nAnthropic Claude Mythos Preview post-quantum imzo algoritmi HAWK‑256 nomzodi va AES‑128’ning qisqartirilgan 7-round varianti bo‘yicha yaxshiroq kriptotahlil usullarini topishga yordam berganini e’lon qildi.\n\nMuhim aniqlik: **to‘liq AES‑128 buzilmagan**, HAWK esa production’da qo‘llanilmagan nomzod edi.\n\nDevlar uchun xulosa: o‘z kriptografiyangizni yozmang, standart kutubxonadan foydalaning va post-quantum migration’ni kuzatib boring.\n\nManba: Anthropic.\n\n━━━━━━━━━━━━━━━━━━━━━━\nAidevix — AI & Dasturlash O'quv Platformasi 🇺🇿\n\n📢 Kanal: @aidevix\n📸 Instagram: @aidevix.uz\n🌐 Sayt: aidevix.uz\n\n#AI #TechNews #Dasturlash #Aidevix #VibeCoding",
     "status": "pending"
   },
@@ -118,7 +106,6 @@
     "order": 13,
     "title": "OpenAI Daybreak: GPT‑5.6‑Cyber va Chrome V8 zaifligi",
     "time_slot": "07:45",
-    "image_path": "C:\\Users\\user\\.gemini\\antigravity-cli\\brain\\d50f1280-c654-494f-98e4-0330669fe408\\clean_agent_banner_1786755705506.jpg",
     "caption": "⚡ OpenAI Daybreak: GPT‑5.6‑Cyber va Chrome V8 zaifligi\n\n**AI topgan bug — avtomatik merge qilinadigan patch degani emas.**\n\nOpenAI GPT‑5.6‑Cyber modelini Daybreak nomli nazorat qilinadigan dastur doirasida kengaytirganini aytdi. Kompaniyaga ko‘ra, model Chrome’ning V8 engine’ida yuqori xavfli CVE‑2026‑15903 zaifligini aniqlashga yordam bergan; u Google tomonidan patch qilingan.\n\nAsosiy xulosa: AI vulnerability research’ni tezlashtirishi mumkin. Ammo AI tavsiya qilgan patch hali ham regression test, threat model, code review va rollback rejasidan o‘tishi shart.\n\nManba: OpenAI.\n\n━━━━━━━━━━━━━━━━━━━━━━\nAidevix — AI & Dasturlash O'quv Platformasi 🇺🇿\n\n📢 Kanal: @aidevix\n📸 Instagram: @aidevix.uz\n🌐 Sayt: aidevix.uz\n\n#AI #TechNews #Dasturlash #Aidevix #VibeCoding",
     "status": "pending"
   }

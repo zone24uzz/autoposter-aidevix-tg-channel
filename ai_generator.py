@@ -43,7 +43,7 @@ Aidevix — AI & Dasturlash O'quv Platformasi 🇺🇿
 
 #AI #TechNews #Dasturlash #Aidevix #VibeCoding
 
-Muhim: Jami matn uzunligi 900 belgidan oshmasin (Telegram rasm tagidagi caption limitiga sig'ishi uchun). Faqat tayyor post matnini qaytaring, boshqa hech qanday ortiqcha gap yozmang.
+Muhim: Telegram kanali uchun toza, professional va o'qishli matnli post tayyorlang. Sarlavha va asosiy fikrlarni **qalin** qilib bering. Jami matn 800-1500 belgi atrofida bo'lsin. Faqat tayyor post matnini qaytaring, boshqa hech qanday ortiqcha gap yozmang.
 """
 
 def fetch_latest_news():

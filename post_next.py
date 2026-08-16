@@ -5,6 +5,15 @@ import datetime
 import urllib.request
 import urllib.parse
 import urllib.error
+import re
+import html
+
+if sys.platform == "win32":
+    try:
+        sys.stdout.reconfigure(encoding='utf-8')
+        sys.stderr.reconfigure(encoding='utf-8')
+    except Exception:
+        pass
 
 from ai_generator import get_next_post
 
@@ -16,7 +25,6 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 POSTS_QUEUE_FILE = os.path.join(BASE_DIR, "posts_queue.json")
 HISTORY_FILE = os.path.join(BASE_DIR, "history.json")
 HISTORY_MD_FILE = os.path.join(BASE_DIR, "POSTS_HISTORY.md")
-DEFAULT_IMAGE = os.path.join(BASE_DIR, "images", "post1.png")
 
 def load_json(filepath, default):
     if os.path.exists(filepath):
@@ -51,59 +59,61 @@ def append_to_markdown_history(title, caption, slot, post_type):
     with open(HISTORY_MD_FILE, 'a', encoding='utf-8') as f:
         f.write(entry)
 
-def send_photo(chat_id, photo_path, caption):
-    url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendPhoto"
-    boundary = "----WebKitFormBoundary7MA4YWxkTrZu0gW"
+def format_to_html(text):
+    # HTML maxsus belgilarini xavfsiz escape qilish
+    escaped = html.escape(text)
+    # **qalin matn** va __qalin matn__ -> <b>...</b>
+    escaped = re.sub(r'\*\*(.+?)\*\*', r'<b>\1</b>', escaped)
+    escaped = re.sub(r'__(.+?)__', r'<b>\1</b>', escaped)
+    # `kod matni` -> <code>...</code>
+    escaped = re.sub(r'`([^`]+)`', r'<code>\1</code>', escaped)
+    return escaped
+
+def send_message(chat_id, text):
+    """
+    Telegramga rasmsiz, toza va chiroyli formatlangan matnli post yuborish.
+    """
+    url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
     
-    if not photo_path or not os.path.exists(photo_path):
-        for ext in [".png", ".jpg", ".jpeg"]:
-            alt = os.path.join(BASE_DIR, "images", f"post1{ext}")
-            if os.path.exists(alt):
-                photo_path = alt
-                break
-                
-    if not os.path.exists(photo_path):
-        img_dir = os.path.join(BASE_DIR, "images")
-        if os.path.exists(img_dir):
-            files = [os.path.join(img_dir, f) for f in os.listdir(img_dir) if f.endswith(('.png', '.jpg', '.jpeg'))]
-            if files:
-                photo_path = files[0]
-                
-    with open(photo_path, 'rb') as f:
-        file_bytes = f.read()
-        
-    filename = os.path.basename(photo_path)
-    mime_type = "image/png" if filename.lower().endswith(".png") else "image/jpeg"
-    
-    body = bytearray()
-    body.extend(f'--{boundary}\r\n'.encode('utf-8'))
-    body.extend(f'Content-Disposition: form-data; name="chat_id"\r\n\r\n'.encode('utf-8'))
-    body.extend(f'{chat_id}\r\n'.encode('utf-8'))
-    
-    body.extend(f'--{boundary}\r\n'.encode('utf-8'))
-    body.extend(f'Content-Disposition: form-data; name="caption"\r\n\r\n'.encode('utf-8'))
-    body.extend(caption.encode('utf-8'))
-    body.extend(b'\r\n')
-    
-    body.extend(f'--{boundary}\r\n'.encode('utf-8'))
-    body.extend(f'Content-Disposition: form-data; name="photo"; filename="{filename}"\r\n'.encode('utf-8'))
-    body.extend(f'Content-Type: {mime_type}\r\n\r\n'.encode('utf-8'))
-    body.extend(file_bytes)
-    body.extend(b'\r\n')
-    body.extend(f'--{boundary}--\r\n'.encode('utf-8'))
-    
-    req = urllib.request.Request(url, data=body)
-    req.add_header('Content-Type', f'multipart/form-data; boundary={boundary}')
+    # 1-urinish: Chiroyli HTML format bilan yuborish
+    html_text = format_to_html(text)
+    payload = {
+        "chat_id": chat_id,
+        "text": html_text,
+        "parse_mode": "HTML",
+        "disable_web_page_preview": True
+    }
+    data = json.dumps(payload).encode('utf-8')
+    req = urllib.request.Request(url, data=data, headers={'Content-Type': 'application/json'})
     
     try:
         with urllib.request.urlopen(req, timeout=30) as response:
             res = json.loads(response.read().decode('utf-8'))
+            if res.get("ok", False):
+                return True
+    except urllib.error.HTTPError as e:
+        err_msg = e.read().decode('utf-8')
+        print(f"HTML Parse/HTTP Error ({e.code}): {err_msg}. Plain text sifatida qayta urinilmoqda...")
+    except Exception as e:
+        print(f"HTML yuborishda xatolik: {e}")
+        
+    # 2-urinish (Fallback): Formatlarsiz oddiy matn (plain text) ko'rinishida yuborish
+    try:
+        plain_payload = {
+            "chat_id": chat_id,
+            "text": text,
+            "disable_web_page_preview": True
+        }
+        plain_data = json.dumps(plain_payload).encode('utf-8')
+        plain_req = urllib.request.Request(url, data=plain_data, headers={'Content-Type': 'application/json'})
+        with urllib.request.urlopen(plain_req, timeout=30) as response:
+            res = json.loads(response.read().decode('utf-8'))
             return res.get("ok", False)
     except urllib.error.HTTPError as e:
-        print(f"HTTP Error: {e.code} - {e.read().decode('utf-8')}")
+        print(f"Plain text HTTP Error ({e.code}): {e.read().decode('utf-8')}")
         return False
     except Exception as e:
-        print(f"Send error: {e}")
+        print(f"Plain text yuborishda xatolik: {e}")
         return False
 
 def main():
@@ -119,7 +129,6 @@ def main():
         target_post = pending_posts[0]
         title = target_post.get("title", "Yangi post")
         caption = target_post.get("caption", "")
-        img = target_post.get("image_path")
         slot = target_post.get("time_slot", slot)
     else:
         # 2. Navbat tugasa, Gemini orqali jonli yangilik
@@ -128,25 +137,21 @@ def main():
         if ai_post:
             title = ai_post.get("title", "AI Yangilik")
             caption = ai_post.get("caption", "")
-            img = DEFAULT_IMAGE
             post_type = "ai_generated"
         else:
             print("Yangilik generatsiya qilib bo'lmadi.")
             sys.exit(1)
             
-    print(f"Post tayyorlandi: '{title}'")
-    if not img or not os.path.exists(img):
-        img = DEFAULT_IMAGE
+    print(f"Post tayyorlandi: '{title}' (Rasmsiz, toza matn ko'rinishida)")
         
     # 🔔 DARHOL ADMIN LICHKASIGA (Telegram Bot orqali) YUBORISH
     if ADMIN_CHAT_ID:
-        admin_prefix = f"🔔 [YANGI POST TOPILDI VA CHIQARILDI — {slot}]\n\n"
-        admin_caption = (admin_prefix + caption)[:1020]
-        send_photo(ADMIN_CHAT_ID, img, admin_caption)
+        admin_prefix = f"🔔 [YANGI POST CHIQARILMOQDA — {slot}]\n\n"
+        send_message(ADMIN_CHAT_ID, admin_prefix + caption)
         print(f"Admin ({ADMIN_CHAT_ID}) ga darhol Telegram bot orqali xabar yuborildi! 📲")
         
-    # Kanalga joylash
-    success = send_photo(CHANNEL_ID, img, caption)
+    # Kanalga joylash (Rasmsiz, matnli post)
+    success = send_message(CHANNEL_ID, caption)
     
     if success:
         print(f"Post muvaffaqiyatli kanalga joylandi! 🎉")

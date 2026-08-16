@@ -8,7 +8,7 @@ if sys.platform == "win32":
     except Exception:
         pass
 
-from autoposter import send_photo, CHANNEL_ID, ADMIN_CHAT_ID, BASE_DIR, HISTORY_FILE, POSTS_QUEUE_FILE, load_json, save_json
+from autoposter import send_message, CHANNEL_ID, ADMIN_CHAT_ID, BASE_DIR, HISTORY_FILE, POSTS_QUEUE_FILE, load_json, save_json
 import datetime
 
 queue = load_json(POSTS_QUEUE_FILE, [])
@@ -20,12 +20,10 @@ if not pending_posts:
 
 target_post = pending_posts[0]
 title = target_post.get("title")
-img_path = target_post.get("image_path")
-if not os.path.exists(img_path):
-    img_path = os.path.join(BASE_DIR, "images", "post1.png")
+caption = target_post.get("caption", "")
 
-print(f"'{title}' posti @aidevix kanaliga yuborilmoqda...")
-success = send_photo(CHANNEL_ID, img_path, target_post.get("caption", ""))
+print(f"'{title}' posti @aidevix kanaliga rasmsiz matn sifatida yuborilmoqda...")
+success = send_message(CHANNEL_ID, caption)
 
 if success:
     print(f"Post muvaffaqiyatli kanalga joylandi! 🎉")
@@ -42,6 +40,6 @@ if success:
     save_json(HISTORY_FILE, history)
     
     # Admin ga tasdiq
-    send_photo(ADMIN_CHAT_ID, img_path, f"🎉 [Kanalga muvaffaqiyatli joylandi!]\n\n" + target_post.get("caption", ""))
+    send_message(ADMIN_CHAT_ID, f"🎉 [Kanalga muvaffaqiyatli joylandi!]\n\n" + caption)
 else:
     print("Kanalga yuborishda xatolik yuz berdi! Bot @aidevix kanalida admin ekanligini tekshiring.")

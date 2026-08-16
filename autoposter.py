@@ -14,16 +14,16 @@ import json
 import urllib.request
 import urllib.parse
 import urllib.error
-import mimetypes
+import re
+import html
 
-BOT_TOKEN = "8832388019:AAFaj7_zY7MepFKXrhYBHd15oawP3Ehq2N0"
-CHANNEL_ID = "-1003047427642" # @aidevix
-ADMIN_CHAT_ID = "8357557157"   # Foydalanuvchi
+BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "8832388019:AAFaj7_zY7MepFKXrhYBHd15oawP3Ehq2N0")
+CHANNEL_ID = os.getenv("TELEGRAM_CHANNEL_ID", "-1003047427642") # @aidevix
+ADMIN_CHAT_ID = os.getenv("ADMIN_CHAT_ID", "8357557157")       # Foydalanuvchi
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 HISTORY_FILE = os.path.join(BASE_DIR, "history.json")
 POSTS_QUEUE_FILE = os.path.join(BASE_DIR, "posts_queue.json")
-DEFAULT_IMAGE = os.path.join(BASE_DIR, "images", "post1.png")
 
 SCHEDULE_TIMES = ["07:45", "12:20", "19:45"]
 
@@ -40,53 +40,51 @@ def save_json(filepath, data):
     with open(filepath, 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
-def send_photo(chat_id, photo_path, caption):
-    url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendPhoto"
-    boundary = "----WebKitFormBoundary7MA4YWxkTrZu0gW"
+def format_to_html(text):
+    escaped = html.escape(text)
+    escaped = re.sub(r'\*\*(.+?)\*\*', r'<b>\1</b>', escaped)
+    escaped = re.sub(r'__(.+?)__', r'<b>\1</b>', escaped)
+    escaped = re.sub(r'`([^`]+)`', r'<code>\1</code>', escaped)
+    return escaped
+
+def send_message(chat_id, text):
+    url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
     
-    if not os.path.exists(photo_path):
-        # Fallback to any available post image in images dir
-        for ext in [".png", ".jpg", ".jpeg"]:
-            alt = os.path.join(BASE_DIR, "images", f"post1{ext}")
-            if os.path.exists(alt):
-                photo_path = alt
-                break
-                
-    with open(photo_path, 'rb') as f:
-        file_bytes = f.read()
-        
-    filename = os.path.basename(photo_path)
-    mime_type = "image/png" if filename.lower().endswith(".png") else "image/jpeg"
-    
-    body = bytearray()
-    body.extend(f'--{boundary}\r\n'.encode('utf-8'))
-    body.extend(f'Content-Disposition: form-data; name="chat_id"\r\n\r\n'.encode('utf-8'))
-    body.extend(f'{chat_id}\r\n'.encode('utf-8'))
-    
-    body.extend(f'--{boundary}\r\n'.encode('utf-8'))
-    body.extend(f'Content-Disposition: form-data; name="caption"\r\n\r\n'.encode('utf-8'))
-    body.extend(caption.encode('utf-8'))
-    body.extend(b'\r\n')
-    
-    body.extend(f'--{boundary}\r\n'.encode('utf-8'))
-    body.extend(f'Content-Disposition: form-data; name="photo"; filename="{filename}"\r\n'.encode('utf-8'))
-    body.extend(f'Content-Type: {mime_type}\r\n\r\n'.encode('utf-8'))
-    body.extend(file_bytes)
-    body.extend(b'\r\n')
-    body.extend(f'--{boundary}--\r\n'.encode('utf-8'))
-    
-    req = urllib.request.Request(url, data=body)
-    req.add_header('Content-Type', f'multipart/form-data; boundary={boundary}')
+    html_text = format_to_html(text)
+    payload = {
+        "chat_id": chat_id,
+        "text": html_text,
+        "parse_mode": "HTML",
+        "disable_web_page_preview": True
+    }
+    data = json.dumps(payload).encode('utf-8')
+    req = urllib.request.Request(url, data=data, headers={'Content-Type': 'application/json'})
     
     try:
         with urllib.request.urlopen(req, timeout=30) as response:
             res = json.loads(response.read().decode('utf-8'))
-            return res.get("ok", False)
+            if res.get("ok", False):
+                return True
     except urllib.error.HTTPError as e:
-        print(f"[{datetime.datetime.now()}] HTTP Error: {e.code} - {e.read().decode('utf-8')}")
-        return False
+        err_msg = e.read().decode('utf-8')
+        print(f"HTML Parse Error ({e.code}): {err_msg}")
     except Exception as e:
-        print(f"[{datetime.datetime.now()}] Send error: {e}")
+        print(f"HTML Send error: {e}")
+        
+    # Plain text fallback
+    try:
+        plain_payload = {
+            "chat_id": chat_id,
+            "text": text,
+            "disable_web_page_preview": True
+        }
+        plain_data = json.dumps(plain_payload).encode('utf-8')
+        plain_req = urllib.request.Request(url, data=plain_data, headers={'Content-Type': 'application/json'})
+        with urllib.request.urlopen(plain_req, timeout=30) as response:
+            res = json.loads(response.read().decode('utf-8'))
+            return res.get("ok", False)
+    except Exception as e:
+        print(f"Plain text Send error: {e}")
         return False
 
 def get_next_scheduled_event():
@@ -139,19 +137,13 @@ def main_loop():
                 
         if target_post:
             title = target_post.get("title", "Yangi post")
-            print(f"[{datetime.datetime.now()}] '{title}' posti @aidevix kanaliga nashr qilinmoqda...")
+            print(f"[{datetime.datetime.now()}] '{title}' posti @aidevix kanaliga rasmsiz matn sifatida nashr qilinmoqda...")
             
-            # Auto detect if png or jpg exists
-            img = target_post.get("image_path")
-            if not img or not os.path.exists(img):
-                img = os.path.join(BASE_DIR, "images", "post1.png")
-                if not os.path.exists(img):
-                    img = os.path.join(BASE_DIR, "images", "post1.jpg")
-                    
-            success = send_photo(CHANNEL_ID, img, target_post.get("caption", ""))
+            caption = target_post.get("caption", "")
+            success = send_message(CHANNEL_ID, caption)
             
             # Admin ga xabarnoma
-            send_photo(ADMIN_CHAT_ID, img, f"✅ [Avtomatik e'lon qilindi: {slot_str}]\n\n" + target_post.get("caption", ""))
+            send_message(ADMIN_CHAT_ID, f"✅ [Avtomatik e'lon qilindi: {slot_str}]\n\n" + caption)
             
             if success:
                 print(f"[{datetime.datetime.now()}] Muvaffaqiyatli kanalga joylandi! 🎉")
