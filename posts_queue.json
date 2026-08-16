@@ -46,7 +46,8 @@
     "time_slot": "12:20",
     "image_path": "C:\\Users\\user\\.gemini\\antigravity-cli\\brain\\d50f1280-c654-494f-98e4-0330669fe408\\clean_agent_banner_1786755705506.jpg",
     "caption": "⚡ Agent Plugins 1.0: AI agentlar uchun umumiy format\n\n**AI agentlar uchun “bir marta yoz — ko‘p joyda ishlat” davri yaqinlashyapti.**\n\nAgent Plugins 1.0 — Agent Skills va MCP serverlarni paketlash uchun umumiy format sifatida e’lon qilindi. Maqsad: bitta plugin’ni turli coding agent ekotizimlarida ishlata olish.\n\nBuni `npm package` analogi deb tasavvur qilish mumkin: ichki AI skill yoki tool yozsangiz, faqat bitta IDE/vendor bilan cheklanib qolmaslik ehtimoli oshadi.\n\nDeveloperlar uchun xulosa: reusable prompt, MCP va internal tool’larni tartibli paketlash endi yanada muhim.\n\nManba: Google Developers va GitHub.\n\n━━━━━━━━━━━━━━━━━━━━━━\nAidevix — AI & Dasturlash O'quv Platformasi 🇺🇿\n\n📢 Kanal: @aidevix\n📸 Instagram: @aidevix.uz\n🌐 Sayt: aidevix.uz\n\n#AI #TechNews #Dasturlash #Aidevix #VibeCoding",
-    "status": "pending"
+    "status": "published",
+    "published_at": "2026-08-16 07:47:27"
   },
   {
     "id": "post_6",

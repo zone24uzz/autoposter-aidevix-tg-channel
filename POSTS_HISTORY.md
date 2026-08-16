@@ -59,3 +59,31 @@ Aidevix — AI & Dasturlash O'quv Platformasi 🇺🇿
 ```
 
 ---
+
+## 📅 2026-08-16 07:47:27 — Agent Plugins 1.0: AI agentlar uchun umumiy format
+**Slot:** `12:20` | **Turi:** `queued`
+
+```markdown
+⚡ Agent Plugins 1.0: AI agentlar uchun umumiy format
+
+**AI agentlar uchun “bir marta yoz — ko‘p joyda ishlat” davri yaqinlashyapti.**
+
+Agent Plugins 1.0 — Agent Skills va MCP serverlarni paketlash uchun umumiy format sifatida e’lon qilindi. Maqsad: bitta plugin’ni turli coding agent ekotizimlarida ishlata olish.
+
+Buni `npm package` analogi deb tasavvur qilish mumkin: ichki AI skill yoki tool yozsangiz, faqat bitta IDE/vendor bilan cheklanib qolmaslik ehtimoli oshadi.
+
+Developerlar uchun xulosa: reusable prompt, MCP va internal tool’larni tartibli paketlash endi yanada muhim.
+
+Manba: Google Developers va GitHub.
+
+━━━━━━━━━━━━━━━━━━━━━━
+Aidevix — AI & Dasturlash O'quv Platformasi 🇺🇿
+
+📢 Kanal: @aidevix
+📸 Instagram: @aidevix.uz
+🌐 Sayt: aidevix.uz
+
+#AI #TechNews #Dasturlash #Aidevix #VibeCoding
+```
+
+---
