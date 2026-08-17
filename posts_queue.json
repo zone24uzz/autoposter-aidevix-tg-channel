@@ -59,7 +59,8 @@
     "title": "Meta Muse Glimmer: local agent modeli",
     "time_slot": "07:45",
     "caption": "⚡ Meta Muse Glimmer: local agent modeli\n\n**Kod bazani cloud’ga yubormasdan AI agent ishlatish yana bir qadam yaqinlashdi.**\n\nMeta **Muse Glimmer** — 30B open-weight agent modelini Apache 2.0 litsenziyasi bilan chiqardi. U local coding va function calling kabi workflow’lar uchun mo‘ljallangan.\n\nBu kompaniya kodi yoki maxfiy ma’lumotini tashqi API’ga yuborishni istamaydigan jamoalar uchun qiziq yo‘nalish.\n\nLekin “local” har doim “yengil” degani emas: Meta quantization bilan ham taxminan 17–20 GB xotira talab qilinishini ko‘rsatadi. Demak, hamma laptop uchun emas.\n\nManba: Meta.\n\n━━━━━━━━━━━━━━━━━━━━━━\nAidevix — AI & Dasturlash O'quv Platformasi 🇺🇿\n\n📢 Kanal: @aidevix\n📸 Instagram: @aidevix.uz\n🌐 Sayt: aidevix.uz\n\n#AI #TechNews #Dasturlash #Aidevix #VibeCoding",
-    "status": "pending"
+    "status": "published",
+    "published_at": "2026-08-17 03:33:28"
   },
   {
     "id": "post_8",

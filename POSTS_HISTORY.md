@@ -115,3 +115,31 @@ Aidevix — AI & Dasturlash O'quv Platformasi 🇺🇿
 ```
 
 ---
+
+## 📅 2026-08-17 03:33:28 — Meta Muse Glimmer: local agent modeli
+**Slot:** `07:45` | **Turi:** `queued`
+
+```markdown
+⚡ Meta Muse Glimmer: local agent modeli
+
+**Kod bazani cloud’ga yubormasdan AI agent ishlatish yana bir qadam yaqinlashdi.**
+
+Meta **Muse Glimmer** — 30B open-weight agent modelini Apache 2.0 litsenziyasi bilan chiqardi. U local coding va function calling kabi workflow’lar uchun mo‘ljallangan.
+
+Bu kompaniya kodi yoki maxfiy ma’lumotini tashqi API’ga yuborishni istamaydigan jamoalar uchun qiziq yo‘nalish.
+
+Lekin “local” har doim “yengil” degani emas: Meta quantization bilan ham taxminan 17–20 GB xotira talab qilinishini ko‘rsatadi. Demak, hamma laptop uchun emas.
+
+Manba: Meta.
+
+━━━━━━━━━━━━━━━━━━━━━━
+Aidevix — AI & Dasturlash O'quv Platformasi 🇺🇿
+
+📢 Kanal: @aidevix
+📸 Instagram: @aidevix.uz
+🌐 Sayt: aidevix.uz
+
+#AI #TechNews #Dasturlash #Aidevix #VibeCoding
+```
+
+---
