@@ -171,3 +171,31 @@ Aidevix — AI & Dasturlash O'quv Platformasi 🇺🇿
 ```
 
 ---
+
+## 📅 2026-08-17 14:58:57 — AMD Taalas’ni sotib olmoqda: inference chiplar poygasi
+**Slot:** `19:45` | **Turi:** `queued`
+
+```markdown
+⚡ AMD Taalas’ni sotib olmoqda: inference chiplar poygasi
+
+**AI’ning keyingi katta jangi — modelni o‘qitish emas, uni arzon va tez ishlatish bo‘lishi mumkin.**
+
+AMD AI inference uchun maxsus chiplar ishlab chiqadigan Taalas startapini sotib olish bo‘yicha kelishuvga erishdi.
+
+Inference — bu tayyor modelning foydalanuvchi so‘rovlariga javob berishi. Chatbot, code copilot yoki AI feature ishlaganda asosan shu xarajat qilinadi.
+
+Demak, bozor asta-sekin “kim eng katta modelni train qildi?” savolidan “kim uni eng arzon, tez va energiya tejamkor ishlatadi?” savoliga o‘tyapti.
+
+Manba: AMD va Reuters.
+
+━━━━━━━━━━━━━━━━━━━━━━
+Aidevix — AI & Dasturlash O'quv Platformasi 🇺🇿
+
+📢 Kanal: @aidevix
+📸 Instagram: @aidevix.uz
+🌐 Sayt: aidevix.uz
+
+#AI #TechNews #Dasturlash #Aidevix #VibeCoding
+```
+
+---
