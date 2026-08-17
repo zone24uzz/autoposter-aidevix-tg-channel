@@ -143,3 +143,31 @@ Aidevix — AI & Dasturlash O'quv Platformasi 🇺🇿
 ```
 
 ---
+
+## 📅 2026-08-17 08:02:27 — NVIDIA: AI infratuzilmasiga $500 mlrd+ kapital safarbar qilish rejasi
+**Slot:** `12:20` | **Turi:** `queued`
+
+```markdown
+⚡ NVIDIA: AI infratuzilmasiga $500 mlrd+ kapital safarbar qilish rejasi
+
+**AI poygasi endi faqat model poygasi emas — data center, elektr va moliya poygasi ham.**
+
+NVIDIA Apollo, BlackRock, Blackstone va boshqa yirik moliyaviy institutlar bilan AI compute infratuzilmasi uchun $500 milliarddan ortiq uchinchi tomon kapitalini safarbar qilishni maqsad qilgan platformalar bo‘yicha memorandum imzoladi.
+
+Muhim farq: bu $500 mlrd hozirning o‘zida sarflangan pul emas, balki rejalashtirilgan mobilizatsiya hajmi.
+
+Signal esa juda katta: kelajakdagi AI cheklovi faqat GPU emas; elektr quvvati, data center va moliyalashtirish ham bo‘ladi.
+
+Manba: NVIDIA.
+
+━━━━━━━━━━━━━━━━━━━━━━
+Aidevix — AI & Dasturlash O'quv Platformasi 🇺🇿
+
+📢 Kanal: @aidevix
+📸 Instagram: @aidevix.uz
+🌐 Sayt: aidevix.uz
+
+#AI #TechNews #Dasturlash #Aidevix #VibeCoding
+```
+
+---
