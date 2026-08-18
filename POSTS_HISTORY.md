@@ -225,3 +225,29 @@ Aidevix — AI & Dasturlash O'quv Platformasi 🇺🇿
 ```
 
 ---
+
+## 📅 2026-08-18 07:56:21 — GOLD EAGLE: AI yordamida vulnerabilitilarni topish bo‘yicha koordinatsiya
+**Slot:** `12:20` | **Turi:** `queued`
+
+```markdown
+⚡ GOLD EAGLE: AI yordamida vulnerabilitilarni topish bo‘yicha koordinatsiya
+
+**AI endi faqat kod yozmayapti — software’dagi zaifliklarni topish va patch qilish jarayoniga ham kirmoqda.**
+
+AQShda GOLD EAGLE tashabbusi e’lon qilindi. Uning maqsadi — AI yordamida topilgan zaifliklarni aniqlash, tekshirish, prioritetlash va critical infrastructure hamda open-source hamkorlar bilan bartaraf etishni muvofiqlashtirish.
+
+Devlar uchun signal: machine-found vulnerability reportlar ko‘payadi. Open-source loyiha yoki product’da security triage, responsible disclosure va patch validation jarayoni aniq bo‘lishi kerak.
+
+Manba: White House.
+
+━━━━━━━━━━━━━━━━━━━━━━
+Aidevix — AI & Dasturlash O'quv Platformasi 🇺🇿
+
+📢 Kanal: @aidevix
+📸 Instagram: @aidevix.uz
+🌐 Sayt: aidevix.uz
+
+#AI #TechNews #Dasturlash #Aidevix #VibeCoding
+```
+
+---
