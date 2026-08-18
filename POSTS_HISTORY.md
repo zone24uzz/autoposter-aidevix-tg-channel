@@ -251,3 +251,31 @@ Aidevix — AI & Dasturlash O'quv Platformasi 🇺🇿
 ```
 
 ---
+
+## 📅 2026-08-18 15:05:36 — Anthropic: AI kriptografik zaifliklarni izlashga yordam bermoqda
+**Slot:** `19:45` | **Turi:** `queued`
+
+```markdown
+⚡ Anthropic: AI kriptografik zaifliklarni izlashga yordam bermoqda
+
+**“AI AES’ni buzdi” degan xulosaga shoshilmang. Lekin signal jiddiy.**
+
+Anthropic Claude Mythos Preview post-quantum imzo algoritmi HAWK‑256 nomzodi va AES‑128’ning qisqartirilgan 7-round varianti bo‘yicha yaxshiroq kriptotahlil usullarini topishga yordam berganini e’lon qildi.
+
+Muhim aniqlik: **to‘liq AES‑128 buzilmagan**, HAWK esa production’da qo‘llanilmagan nomzod edi.
+
+Devlar uchun xulosa: o‘z kriptografiyangizni yozmang, standart kutubxonadan foydalaning va post-quantum migration’ni kuzatib boring.
+
+Manba: Anthropic.
+
+━━━━━━━━━━━━━━━━━━━━━━
+Aidevix — AI & Dasturlash O'quv Platformasi 🇺🇿
+
+📢 Kanal: @aidevix
+📸 Instagram: @aidevix.uz
+🌐 Sayt: aidevix.uz
+
+#AI #TechNews #Dasturlash #Aidevix #VibeCoding
+```
+
+---
