@@ -199,3 +199,29 @@ Aidevix — AI & Dasturlash O'quv Platformasi 🇺🇿
 ```
 
 ---
+
+## 📅 2026-08-18 03:27:46 — EU AI Act: shaffoflik talablari kuchga kirdi
+**Slot:** `07:45` | **Turi:** `queued`
+
+```markdown
+⚡ EU AI Act: shaffoflik talablari kuchga kirdi
+
+**AI mahsulot qilayotganlar uchun yangi savol: “model ishlaydimi?” emas, “foydalanuvchiga AI ekanini aytyaptimi?”**
+
+Yevropa Ittifoqida AI Act’ning yangi shaffoflik talablari kuchga kirdi. Ayrim holatlarda foydalanuvchiga AI bilan muloqot qilayotgani ochiq ko‘rsatilishi, AI yaratgan yoki manipulyatsiya qilingan kontent belgilanishi kerak.
+
+Bu ayniqsa EU bozoriga xizmat qiladigan SaaS, agency va startup’lar uchun muhim: disclosure, label va traceability endi faqat legal masala emas — product requirement.
+
+Manba: European Commission.
+
+━━━━━━━━━━━━━━━━━━━━━━
+Aidevix — AI & Dasturlash O'quv Platformasi 🇺🇿
+
+📢 Kanal: @aidevix
+📸 Instagram: @aidevix.uz
+🌐 Sayt: aidevix.uz
+
+#AI #TechNews #Dasturlash #Aidevix #VibeCoding
+```
+
+---
