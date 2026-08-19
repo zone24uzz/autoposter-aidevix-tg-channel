@@ -113,6 +113,7 @@
     "title": "OpenAI Daybreak: GPT‑5.6‑Cyber va Chrome V8 zaifligi",
     "time_slot": "07:45",
     "caption": "⚡ OpenAI Daybreak: GPT‑5.6‑Cyber va Chrome V8 zaifligi\n\n**AI topgan bug — avtomatik merge qilinadigan patch degani emas.**\n\nOpenAI GPT‑5.6‑Cyber modelini Daybreak nomli nazorat qilinadigan dastur doirasida kengaytirganini aytdi. Kompaniyaga ko‘ra, model Chrome’ning V8 engine’ida yuqori xavfli CVE‑2026‑15903 zaifligini aniqlashga yordam bergan; u Google tomonidan patch qilingan.\n\nAsosiy xulosa: AI vulnerability research’ni tezlashtirishi mumkin. Ammo AI tavsiya qilgan patch hali ham regression test, threat model, code review va rollback rejasidan o‘tishi shart.\n\nManba: OpenAI.\n\n━━━━━━━━━━━━━━━━━━━━━━\nAidevix — AI & Dasturlash O'quv Platformasi 🇺🇿\n\n📢 Kanal: @aidevix\n📸 Instagram: @aidevix.uz\n🌐 Sayt: aidevix.uz\n\n#AI #TechNews #Dasturlash #Aidevix #VibeCoding",
-    "status": "pending"
+    "status": "published",
+    "published_at": "2026-08-19 03:29:38"
   }
 ]
